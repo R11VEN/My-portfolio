@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,26 +17,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
 }
 
 #app {
@@ -42,55 +32,103 @@ h1 {
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
+.title {
+  margin: 10px auto;
+  font-size: 2rem;
 }
 
-.card {
-  padding: 2em;
+.textarea {
+  width: 700px;
+  height: 300px;
+  margin: 10px auto 10px;
+  padding: 10px;
 }
 
-.read-the-docs {
-  color: #888;
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: auto;
+  margin: 0 auto;
+  padding: 0 5px 5px 5px;
+  background: #00c3ff;
+  border: 3px solid #222222;
+  border-radius: 5px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 5px;
+  gap: 5px;
+}
+
+.button {
+  flex: 1;
+  padding: 5px;
+  border-radius: 3px;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  user-select: none;
+  background-color: rgb(0, 255, 242);
+  box-shadow: 5px 5px 2px rgba(0,0,0,0.3);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.button:hover {
+  background-color: rgb(255, 146, 21);
+  transform: scale(1.01);
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.3), 0 0px 5px #fff, 0 0 10px #38eeff, 0 0 50px #38eeff;
+}
+
+.button:active,
+.keydown {
+  background-color: rgb(255, 146, 21);
+  transform: scale(0.95);
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.3), 0 0px 5px #fff, 0 0 10px #38eeff, 0 0 50px #38eeff;
+  border-radius: 6px;
+}
+
+.Backspace,
+.ShiftLeft,
+.ShiftRight,
+.Enter {
+  flex: 3;
+}
+
+.Tab,
+.CapsLock,
+.Delete {
+  flex: 2;
+}
+
+.ControlLeft,
+.ControlRight,
+.Win,
+.AltLeft,
+.AltRight {
+  flex: 1.4;
+}
+
+.Space {
+  flex: 9;
+}
+
+.description,
+.language {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.massage_container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
 }
