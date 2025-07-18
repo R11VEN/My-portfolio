@@ -1,5 +1,4 @@
 import { keys } from './keys.ts';
-//import { capsLock } from './capsLock';
 
 export const switchLang = (language: string) => {
   const buttons = document.querySelectorAll('.button');
@@ -16,7 +15,5 @@ export const switchLang = (language: string) => {
       (<HTMLDivElement>item).innerText = allKeysEng[index];
     }
   });
-
-  //capsLock.check(buttons, event);
 };
 
