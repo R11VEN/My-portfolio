@@ -4,7 +4,6 @@ class CapsLock {
   on(buttons: NodeListOf<Element>) {
     const lang = localStorage.getItem('lang');
     if (lang === 'ru' || lang === 'eng') {
-      console.log(lang);
       for (let i = 0; i < buttons.length; i++) {
         keys[lang].shift.keys.find((item, index) => {
           if (item === (<HTMLDivElement>buttons[i]).innerText.toLowerCase()) {
@@ -18,7 +17,6 @@ class CapsLock {
   off(buttons: NodeListOf<Element>) {
     const lang = localStorage.getItem('lang');
     if (lang === 'ru' || lang === 'eng') {
-      console.log(lang);
       for (let i = 0; i < buttons.length; i++) {
         keys[lang].shift.keys.find((item, index) => {
           if (item === (<HTMLDivElement>buttons[i]).innerText.toLowerCase()) {
