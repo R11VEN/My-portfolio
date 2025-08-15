@@ -1,9 +1,11 @@
 import { Special } from './types.ts';
 import { keys } from './keys.ts';
+import { storage } from './storage';
 
 export const getKeyboardBody = () => {
+  const lang = storage.getLang();
   const keyboard = <HTMLDivElement>document.querySelector('.keyboard');
-  keys.eng.keyboard.map((row) => {
+  keys[lang].keyboard.map((row) => {
     let newRow = '';
     row.forEach((key) => {
       let calass = `button ${key}`;

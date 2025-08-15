@@ -1,7 +1,8 @@
 import { capsLock } from './capsLock';
+import { storage } from './storage';
 
 export const message = (buttons: NodeListOf<Element>) => {
-  localStorage.getItem('lang') ?? localStorage.setItem('lang', 'eng');
+  storage.getLang();
   const massageContainer = <HTMLDivElement>document.querySelector('.massage_container');
   const close = <HTMLButtonElement>document.querySelector('.close_button');
   close.addEventListener('click', event => {
