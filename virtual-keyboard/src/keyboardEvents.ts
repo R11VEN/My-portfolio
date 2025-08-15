@@ -3,6 +3,7 @@ import { capsLock } from './capsLock';
 import { message } from './message';
 import { checkLang } from './checkLang';
 import { switchLang } from './switchLang';
+import { storage } from './storage';
 
 export const keyboardEvents = () => {
   const buttons = document.querySelectorAll('.button');
@@ -24,10 +25,17 @@ export const keyboardEvents = () => {
         case 'button special AltRight keydown':
           event.preventDefault();
           if (event.getModifierState('Control')) {
-            let lang = localStorage.getItem('lang');
-            lang === 'eng' ? lang = 'ru' : lang = 'eng';
+            let lang = 'eng';
+            switch (storage.getLang()) {
+            case 'ru':
+              lang = 'eng';
+              break;
+            case 'eng':
+              lang = 'ru';
+              break;
+            }
             switchLang(lang);
-            localStorage.setItem('lang', lang);
+            storage.setLang(lang);
           }
           break;
         case 'button special MetaLeft keydown':
