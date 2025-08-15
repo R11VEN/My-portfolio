@@ -8,13 +8,27 @@ export const mouseEvents = () => {
 
   keyboard.addEventListener('click', event => {
     capsLock.check(buttons, event);
+    function getValuePosition(textBefore: number, textAfter: number, cursorPosition: number, value: string) {
+      const selectionStart = textarea.selectionStart;
+      textarea.value = textarea.value.substring(0, selectionStart + textBefore) + value + textarea.value.substring(selectionStart + textAfter);
+      textarea.selectionStart = textarea.selectionEnd = selectionStart + cursorPosition;
+    }
     if ((<HTMLElement>event.target).classList.contains('button')) {
       switch ((<HTMLElement>event.target).classList.value) {
       case 'button special Space':
-        textarea.value += ' ';
+        getValuePosition(+ 0, + 0, + 1, ' ');
         break;
       case 'button special Tab':
-        textarea.value += '\t';
+        getValuePosition(+ 0, + 0, + 1,'\t');
+        break;
+      case 'button special Enter':
+        getValuePosition(+ 0, + 0, + 1, '\n');
+        break;
+      case 'button special Backspace':
+        getValuePosition(- 1, + 0, - 1, '');
+        break;
+      case 'button special Delete':
+        getValuePosition(+ 0, + 1, + 0, '');
         break;
       case 'button special CapsLock':
         capsLock.on(buttons);
